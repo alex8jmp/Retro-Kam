@@ -1,0 +1,16 @@
+{
+  "name": "CHROMA 35 — Film Camera",
+  "short_name": "CHROMA 35",
+  "description": "Classic 35mm camera experience with five film stock simulations, local film negatives, and a mechanical camera interface.",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#17191b",
+  "theme_color": "#17191b",
+  "icons": [
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
