@@ -29,3 +29,7 @@ Keep this project under the same HTTPS site origin as the previous app if you wa
 - Service-worker cache is bumped to `chroma35-v2-1` so replacing the deployed files updates installed copies on the next load (reopen once if the old interface remains cached).
 
 Deploy all files together to the same HTTPS directory. Keep the same origin/path as the previous version to preserve IndexedDB photos.
+
+## Version 2.2 — landscape film picker fix
+
+On short landscape phone screens the flex column previously compressed the film-cartridge section and clipped the stock selector. The scrolling settings panel now keeps each field at its natural height, with a sticky film picker at the top. In portrait, the film picker remains accessible while settings scroll. The viewfinder and camera framing remain fixed. Offline cache version updated.
