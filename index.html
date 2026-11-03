@@ -13,6 +13,48 @@
 @media(max-width:780px){.app{padding:0;align-items:stretch}.camera{border:0;border-radius:0;min-height:100dvh;display:flex;flex-direction:column}.topplate{padding:9px 13px;min-height:76px}.top-dial{height:51px;width:51px}.top-dial span{font-size:9px}.metal-btn{width:52px;height:52px}.prism{width:33px;height:33px}.brand{font-size:23px}.brand small{font-size:8px}.camera-body{display:flex;flex-direction:column;flex:1;padding:11px;gap:11px}.finder{min-height:0;aspect-ratio:3/2}.finder-shell{flex:0 0 auto}.side{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.side>.panel-heading,.side>.film-slot,.side>.separator,.side>.help-text{grid-column:1/-1}.film-slot{padding:8px 10px}.film-slot .film-name{font-size:17px}.film-select{margin-top:8px}.bottomplate{padding:9px 13px}.status{font-size:10px}.under-finder{padding:7px}.field{min-width:0}}
 @media(max-width:410px){.top-dial{display:none}.side{gap:9px}.brand{font-size:21px}.bottomplate small{font-size:8px}.finder{border-width:7px}.film-slot .film-name{font-size:16px}.side .help-text{font-size:10px}}
 @media(min-width:781px) and (max-height:770px){.app{align-items:flex-start}.camera-body{grid-template-columns:minmax(0,1fr) 270px}.finder{min-height:260px}.topplate{min-height:74px;padding:7px 18px}.top-dial{height:54px;width:54px}.side{gap:9px}}
+
+/* v2.1 — viewfinder-anchored responsive camera. Only the film-control bay scrolls. */
+@media (max-width:780px) and (orientation:portrait){
+ html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+ .app{height:100dvh;min-height:0;overflow:hidden;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+ .camera{height:100%;min-height:0;max-height:100%;overflow:hidden}
+ .topplate{flex:0 0 auto}
+ .camera-body{min-height:0;overflow:hidden;display:flex;flex-direction:column;flex:1 1 auto}
+ .finder-shell{flex:0 0 auto;min-height:0;gap:7px}
+ .finder{width:100%;aspect-ratio:3/2;min-height:0;flex-shrink:0}
+ .under-finder{gap:6px;justify-content:center}
+ .under-finder .small-action{padding:7px 8px;font-size:11px}
+ .finder-shell>.help-text{display:none}
+ .side{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#757a74 #171918;align-content:start;padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+ .bottomplate{flex:0 0 auto}
+}
+/* Landscape: keep both the complete silver SLR shell and its live finder on-screen.
+   The scroll track is limited to the right-hand controls, not the camera. */
+@media (orientation:landscape) and (max-height:650px){
+ html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
+ .app{width:100%;height:100dvh;min-height:0;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);overflow:hidden;align-items:stretch}
+ .camera{height:100%;min-height:0;max-height:100%;width:100%;max-width:none;display:flex;flex-direction:column;overflow:hidden;border-radius:12px}
+ .topplate{flex:0 0 auto;min-height:0;height:clamp(46px,12dvh,62px);padding:4px 15px;gap:9px}
+ .ident{gap:8px}.prism{width:31px;height:30px}.brand{font-size:clamp(15px,2.8vw,24px)}.brand small{font-size:7px;margin-top:3px}
+ .top-actions{gap:8px}.top-dial{width:39px;height:39px;padding:4px}.top-dial span{font-size:8px}.metal-btn{height:41px;width:41px;font-size:7px}
+ .camera-body{flex:1 1 auto;min-height:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) clamp(210px,30vw,275px);gap:9px;padding:8px}
+ .finder-shell{min-height:0;min-width:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:7px;justify-items:stretch;overflow:hidden}
+ .finder{box-sizing:border-box;justify-self:center;align-self:center;min-height:0;height:100%;width:auto;max-width:100%;aspect-ratio:3/2;border-width:6px;border-radius:10px}
+ .finder-shell>.help-text{display:none}
+ .under-finder{padding:5px;gap:4px;justify-content:center;flex-wrap:wrap}
+ .counter{font-size:10px;padding:4px 5px}.under-finder .small-action{padding:5px 6px;font-size:9px}
+ .side{min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:9px;padding:9px;scrollbar-width:thin;scrollbar-color:#757a74 #171918}
+ .side>.panel-heading,.side>.film-slot,.side>.separator,.side>.help-text{grid-column:auto}
+ .bottomplate{flex:0 0 auto;min-height:0;height:clamp(25px,7dvh,34px);padding:3px 12px}
+ .bottomplate small{font-size:8px}.status{font-size:9px}
+ .modal{overflow-y:auto}
+}
+@media (orientation:landscape) and (max-height:390px){
+ .topplate{height:43px}.bottomplate{height:24px}.camera-body{padding:5px;gap:6px}.finder-shell{gap:4px}
+ .under-finder .small-action{font-size:8px;padding:4px}.counter{font-size:9px;padding:4px}
+}
+
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>

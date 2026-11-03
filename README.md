@@ -20,3 +20,12 @@ Browser `getUserMedia` cannot guarantee control of actual shutter speed, ISO, le
 
 ## Upgrade notes
 Keep this project under the same HTTPS site origin as the previous app if you want old IndexedDB photographs to remain available. Replace the existing `index.html`, `sw.js`, and `manifest.json`, add `app.js` and the icons. Do not rename `sw.js` or `manifest.json`.
+
+## Version 2.1 — Pixel screen layouts
+
+- **Portrait:** viewfinder, shutter, and camera actions stay visible; scroll the film-stock/settings area below them.
+- **Landscape:** complete camera top plate and bottom plate stay on-screen; the film preview remains visible at the left and the film controls scroll independently on the right.
+- Safe-area insets are applied in both orientations; the app handles narrow, short landscape viewports.
+- Service-worker cache is bumped to `chroma35-v2-1` so replacing the deployed files updates installed copies on the next load (reopen once if the old interface remains cached).
+
+Deploy all files together to the same HTTPS directory. Keep the same origin/path as the previous version to preserve IndexedDB photos.
