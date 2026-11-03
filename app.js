@@ -29,7 +29,7 @@ function updateUI(){
  el.bwFilter.value=state.bwFilter;el.bwFilter.disabled=f.type!=='bw';el.bwFilter.title=f.type!=='bw'?'Applies only to black-and-white films':'';
  for(const id of ['manualAdvance','dateStamp','leaks','damage','sounds'])el[id].checked=state[id];el.grain.value=state.grain;el.grainValue.textContent=`${state.grain}%`;
  const next=shotCount+1;el.frameCounter.textContent=`FRAME ${String(next).padStart(3,'0')}`;el.vfFrame.textContent=`${String(next).padStart(2,'0')} / ∞`;
- el.advanceBtn.disabled=!locked;el.advanceBtn.classList.toggle('selected',locked);
+ el.advanceBtn.disabled=!locked||busy;el.advanceBtn.classList.toggle('needs-wind',locked);el.advanceBtn.setAttribute('aria-label',locked?'Advance film and cock shutter':'Film is wound; advance not needed');el.advanceBtn.title=locked?'Wind film / cock shutter':(state.manualAdvance?'Film ready':'Automatic film advance');$('windLabel').textContent=locked?'WIND':(state.manualAdvance?'WOUND':'AUTO');
  el.shutter.disabled=busy||locked||!stream;el.cameraNote.textContent=locked?'Shutter cocking required: advance the film before the next exposure.':'Images are processed and stored locally. Original and developed files are saved together.';
  persist();
 }

@@ -33,3 +33,11 @@ Deploy all files together to the same HTTPS directory. Keep the same origin/path
 ## Version 2.2 — landscape film picker fix
 
 On short landscape phone screens the flex column previously compressed the film-cartridge section and clipped the stock selector. The scrolling settings panel now keeps each field at its natural height, with a sticky film picker at the top. In portrait, the film picker remains accessible while settings scroll. The viewfinder and camera framing remain fixed. Offline cache version updated.
+
+## Version 2.3 — top-plate film winding dial
+
+- The formerly decorative ASA 400 dial is now an actual film-wind button. Tap **WIND** after exposing a frame when Manual film advance is enabled; the button cocks the shutter using the existing advance animation and sound.
+- The old **ADVANCE FILM** button beneath the viewfinder has been removed, providing more room for the preview.
+- When the film is ready, the dial reads **WOUND** and is disabled. When automatic advance is selected, the dial reads **AUTO**, and the app winds after each exposure.
+- The dial is always visible on narrow portrait screens and short landscape screens, including Pixel devices.
+- Offline service-worker cache name is now `chroma35-v2-3`.
